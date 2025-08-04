@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dandpo AI Transformation Strategy</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -14,6 +14,7 @@
       --dark: #212529;
       --success: #28A745;
       --info: #17A2B8;
+      --warning: #FF9800;
     }
     
     * {
@@ -45,6 +46,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       position: relative;
       overflow: hidden;
+      border-bottom: 5px solid var(--accent);
     }
     
     header::before {
@@ -80,13 +82,13 @@
     }
     
     h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       margin-bottom: 1rem;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
     
     .subtitle {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       max-width: 800px;
       margin: 0 auto 1.5rem;
       font-weight: 300;
@@ -159,144 +161,119 @@
       line-height: 1.8;
     }
     
-    /* Summary Card */
-    .summary-cards {
+    /* Use Cases Grid */
+    .use-cases {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: 1.5rem;
-      margin: 2rem 0;
+      margin-top: 1.5rem;
     }
     
-    .card {
+    .use-case-card {
       background: white;
       border-radius: 10px;
       padding: 1.8rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
-      text-align: center;
       border-top: 4px solid var(--primary);
+      position: relative;
+      overflow: hidden;
     }
     
-    .card:hover {
+    .use-case-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     }
     
-    .card i {
-      font-size: 3rem;
+    .use-case-card i {
+      font-size: 2.5rem;
       color: var(--primary);
       margin-bottom: 1rem;
+      background: rgba(75, 0, 130, 0.1);
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
     }
     
-    .card h3 {
+    .use-case-card h3 {
       font-size: 1.4rem;
       margin: 0.5rem 0;
       color: var(--dark);
+      display: flex;
+      align-items: center;
     }
     
-    /* Features */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 1.5rem;
+    .use-case-card h3 i {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      width: auto;
+      height: auto;
+      background: transparent;
     }
     
-    .feature {
-      padding: 1.5rem;
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      border-radius: 10px;
-      border-left: 4px solid var(--accent);
+    .use-case-content {
+      margin-top: 1rem;
     }
     
-    /* Business Model */
-    .revenue-model {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+    .use-case-content div {
+      margin-bottom: 1.2rem;
     }
     
-    .revenue-item {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      border: 1px solid #e9ecef;
-      text-align: center;
-    }
-    
-    .revenue-item h4 {
-      font-size: 1.2rem;
+    .use-case-content h4 {
+      font-size: 1.1rem;
       color: var(--primary);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
     }
     
-    .revenue-item .value {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: var(--success);
-      margin: 0.5rem 0;
+    .use-case-content h4 i {
+      font-size: 1rem;
+      margin-right: 8px;
+      color: var(--accent);
     }
     
-    /* Timeline */
-    .timeline {
-      position: relative;
-      max-width: 1000px;
-      margin: 3rem auto;
+    /* Workflow Visualization */
+    .workflow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
     }
     
-    .timeline::after {
-      content: '';
-      position: absolute;
-      width: 4px;
-      background: var(--primary);
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      margin-left: -2px;
-    }
-    
-    .timeline-item {
-      padding: 1.5rem 2rem;
-      position: relative;
-      width: 50%;
-      box-sizing: border-box;
-    }
-    
-    .timeline-item:nth-child(odd) {
-      left: 0;
-    }
-    
-    .timeline-item:nth-child(even) {
-      left: 50%;
-    }
-    
-    .timeline-item::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: white;
-      border: 4px solid var(--accent);
-      top: 25px;
-      border-radius: 50%;
-      z-index: 1;
-    }
-    
-    .timeline-item:nth-child(odd)::after {
-      right: -12px;
-    }
-    
-    .timeline-item:nth-child(even)::after {
-      left: -12px;
-    }
-    
-    .timeline-content {
-      padding: 1.5rem;
+    .workflow-step {
       background: white;
       border-radius: 8px;
+      padding: 1.5rem;
+      width: 180px;
+      text-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      position: relative;
+    }
+    
+    .workflow-step i {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    
+    .workflow-step::after {
+      content: "→";
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+    
+    .workflow-step:last-child::after {
+      display: none;
     }
     
     /* Note Section */
@@ -335,7 +312,7 @@
       font-weight: bold;
       border-radius: 50px;
       text-decoration: none;
-      margin: 1.5rem 0;
+      margin: 1.5rem 0.5rem;
       transition: all 0.3s ease;
       box-shadow: 0 4px 12px rgba(255,107,107,0.4);
     }
@@ -346,24 +323,28 @@
       box-shadow: 0 6px 15px rgba(255,107,107,0.6);
     }
     
+    .cta-button.secondary {
+      background: var(--primary);
+      box-shadow: 0 4px 12px rgba(75,0,130,0.4);
+    }
+    
+    .cta-button.secondary:hover {
+      background: #5a189a;
+    }
+    
     /* Responsive */
     @media (max-width: 768px) {
-      .timeline::after {
-        left: 31px;
-      }
-      
-      .timeline-item {
+      .workflow-step {
         width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
+        margin-bottom: 2rem;
       }
       
-      .timeline-item:nth-child(even) {
-        left: 0;
-      }
-      
-      .timeline-item::after {
-        left: 21px;
+      .workflow-step::after {
+        content: "↓";
+        right: 50%;
+        top: auto;
+        bottom: -25px;
+        transform: translateX(50%);
       }
       
       h1 {
@@ -373,6 +354,10 @@
       .subtitle {
         font-size: 1.2rem;
       }
+      
+      .use-cases {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -381,11 +366,11 @@
     <div class="container">
       <div class="logo-container">
         <div class="logo">
-          <i class="fas fa-robot"></i>
+          <i class="fas fa-print"></i>
         </div>
         <div>
           <h1>Dandpo AI Transformation Strategy</h1>
-          <p class="subtitle">Revolutionizing the UAE Printing Industry through Artificial Intelligence</p>
+          <p class="subtitle">Industry-Specific AI Solutions for UAE's Premier Printing Marketplace</p>
         </div>
       </div>
     </div>
@@ -393,210 +378,274 @@
 
   <div class="container">
     <div class="section">
-      <h2>Executive Summary: Business Modernization through AI</h2>
-      <p>Transform Dandpo.com into the UAE's first fully AI-integrated printing marketplace by leveraging automation, digital intelligence, and smart branding. This strategy redefines traditional operations by introducing AI to every critical function — marketing, customer service, HR, and product delivery.</p>
+      <h2>AI-Powered Transformation</h2>
+      <p>Dandpo.com is revolutionizing the UAE printing industry through strategic AI implementation across all business functions. By leveraging cutting-edge artificial intelligence, we're creating seamless workflows, enhanced customer experiences, and intelligent automation throughout the printing value chain.</p>
       
-      <div class="summary-cards">
-        <div class="card">
-          <i class="fas fa-bullseye"></i>
-          <h3>Vision</h3>
-          <p>Become MENA's leading AI-powered printing platform by 2027</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-chart-line"></i>
-          <h3>Market Opportunity</h3>
-          <p>$3.2B UAE printing market with 12% digital transformation growth</p>
-        </div>
-        <div class="card">
+      <div class="workflow">
+        <div class="workflow-step">
           <i class="fas fa-lightbulb"></i>
-          <h3>Innovation</h3>
-          <p>12 proprietary AI workflows to disrupt traditional printing</p>
+          <h3>AI Ideation</h3>
+          <p>Concept Generation</p>
+        </div>
+        <div class="workflow-step">
+          <i class="fas fa-magic"></i>
+          <h3>Design</h3>
+          <p>Automated Creation</p>
+        </div>
+        <div class="workflow-step">
+          <i class="fas fa-cogs"></i>
+          <h3>Production</h3>
+          <p>Smart Workflow</p>
+        </div>
+        <div class="workflow-step">
+          <i class="fas fa-truck"></i>
+          <h3>Delivery</h3>
+          <p>Optimized Logistics</p>
+        </div>
+        <div class="workflow-step">
+          <i class="fas fa-headset"></i>
+          <h3>Support</h3>
+          <p>Intelligent Assistance</p>
         </div>
       </div>
     </div>
 
     <div class="section">
-      <h2>🔍 Target Audience Intelligence</h2>
-      <p>Dandpo.com serves diverse sectors with custom printing needs across the UAE:</p>
+      <h2>Industry-Specific AI Use Cases</h2>
+      <p>Dandpo.com leverages AI across diverse industries to deliver tailored printing solutions:</p>
       
-      <div class="features">
-        <div class="feature">
-          <h3><i class="fas fa-hotel"></i> Tourism Sector</h3>
-          <p>Hotels, restaurants, and tour operators requiring rapid, high-quality custom printing for promotional materials, menus, and guest services with 24-hour turnaround.</p>
+      <div class="use-cases">
+        <!-- Customer Service -->
+        <div class="use-case-card">
+          <i class="fas fa-headset"></i>
+          <h3><i class="fas fa-comments"></i> Customer Service</h3>
+          <div class="use-case-content">
+            <div>
+              <h4><i class="fas fa-question-circle"></i> Application</h4>
+              <p>Handle inquiries about orders, designs, and delivery</p>
+            </div>
+            <div>
+              <h4><i class="fas fa-brain"></i> AI Implementation</h4>
+              <p>Multilingual AI chatbot, WhatsApp Bot, Voice-to-Text FAQ via Telegram</p>
+            </div>
+          </div>
         </div>
-        <div class="feature">
-          <h3><i class="fas fa-graduation-cap"></i> Education Sector</h3>
-          <p>Schools and universities needing branded materials, event promotions, educational resources, and campus signage with academic-year planning features.</p>
+        
+        <!-- Retail -->
+        <div class="use-case-card">
+          <i class="fas fa-shopping-cart"></i>
+          <h3><i class="fas fa-tags"></i> Retail</h3>
+          <div class="use-case-content">
+            <div>
+              <h4><i class="fas fa-question-circle"></i> Application</h4>
+              <p>Product personalization and catalog suggestions</p>
+            </div>
+            <div>
+              <h4><i class="fas fa-brain"></i> AI Implementation</h4>
+              <p>AI recommendation engine, auto SKU tagging</p>
+            </div>
+          </div>
         </div>
-        <div class="feature">
-          <h3><i class="fas fa-shopping-bag"></i> Retail & SMEs</h3>
-          <p>Business cards, product packaging, seasonal campaigns, and point-of-sale materials with brand consistency management.</p>
+        
+        <!-- Transportation -->
+        <div class="use-case-card">
+          <i class="fas fa-truck"></i>
+          <h3><i class="fas fa-map-marked-alt"></i> Transportation</h3>
+          <div class="use-case-content">
+            <div>
+              <h4><i class="fas fa-question-circle"></i> Application</h4>
+              <p>Delivery tracking and logistic reminders</p>
+            </div>
+            <div>
+              <h4><i class="fas fa-brain"></i> AI Implementation</h4>
+              <p>Google Maps + n8n notification system</p>
+            </div>
+          </div>
         </div>
-        <div class="feature">
-          <h3><i class="fas fa-calendar-alt"></i> Event Organizers</h3>
-          <p>Conference materials, promotional giveaways, on-site printing solutions, and last-minute design adjustments with real-time previews.</p>
+        
+        <!-- Manufacturing -->
+        <div class="use-case-card">
+          <i class="fas fa-industry"></i>
+          <h3><i class="fas fa-cogs"></i> Manufacturing</h3>
+          <div class="use-case-content">
+            <div>
+              <h4><i class="fas fa-question-circle"></i> Application</h4>
+              <p>Automate order → print → dispatch workflow</p>
+            </div>
+            <div>
+              <h4><i class="fas fa-brain"></i> AI Implementation</h4>
+              <p>QR code orders → print queue automation</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Finance -->
+        <div class="use-case-card">
+          <i class="fas fa-file-invoice-dollar"></i>
+          <h3><i class="fas fa-money-bill-wave"></i> Finance</h3>
+          <div class="use-case-content">
+            <div>
+              <h4><i class="fas fa-question-circle"></i> Application</h4>
+              <p>Invoice generation and payment reminders</p>
+            </div>
+            <div>
+              <h4><i class="fas fa-brain"></i> AI Implementation</h4>
+              <p>n8n + Google Sheets → auto invoice & payment alerts</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Education -->
+        <div class="use-case-card">
+          <i class="fas fa-graduation-cap"></i>
+          <h3><i class="fas fa-chalkboard-teacher"></i> Education</h3>
+          <div class="use-case-content">
+            <div>
+              <h4><i class="fas fa-question-circle"></i> Application</h4>
+              <p>Internal staff training and client onboarding</p>
+            </div>
+            <div>
+              <h4><i class="fas fa-brain"></i> AI Implementation</h4>
+              <p>AI voiceover + video creation for how-to guides</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Hospitality -->
+        <div class="use-case-card">
+          <i class="fas fa-hotel"></i>
+          <h3><i class="fas fa-umbrella-beach"></i> Hospitality</h3>
+          <div class="use-case-content">
+            <div>
+              <h4><i class="fas fa-question-circle"></i> Application</h4>
+              <p>Tourist-focused campaigns and souvenir orders</p>
+            </div>
+            <div>
+              <h4><i class="fas fa-brain"></i> AI Implementation</h4>
+              <p>AI-designed campaigns in multiple languages</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Cybersecurity -->
+        <div class="use-case-card">
+          <i class="fas fa-shield-alt"></i>
+          <h3><i class="fas fa-lock"></i> Cybersecurity</h3>
+          <div class="use-case-content">
+            <div>
+              <h4><i class="fas fa-question-circle"></i> Application</h4>
+              <p>Protect customer data and order history</p>
+            </div>
+            <div>
+              <h4><i class="fas fa-brain"></i> AI Implementation</h4>
+              <p>AI anomaly detection for user access logs</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Supply Chain -->
+        <div class="use-case-card">
+          <i class="fas fa-boxes"></i>
+          <h3><i class="fas fa-warehouse"></i> Supply Chain</h3>
+          <div class="use-case-content">
+            <div>
+              <h4><i class="fas fa-question-circle"></i> Application</h4>
+              <p>Material stock levels & reorder automation</p>
+            </div>
+            <div>
+              <h4><i class="fas fa-brain"></i> AI Implementation</h4>
+              <p>Inventory alerts + predictive restocking</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Gaming -->
+        <div class="use-case-card">
+          <i class="fas fa-gamepad"></i>
+          <h3><i class="fas fa-vr-cardboard"></i> Gaming</h3>
+          <div class="use-case-content">
+            <div>
+              <h4><i class="fas fa-question-circle"></i> Application</h4>
+              <p>Interactive printing visualizers</p>
+            </div>
+            <div>
+              <h4><i class="fas fa-brain"></i> AI Implementation</h4>
+              <p>AI-generated mockups for gamified merchandise</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Agriculture -->
+        <div class="use-case-card">
+          <i class="fas fa-tractor"></i>
+          <h3><i class="fas fa-seedling"></i> Agriculture</h3>
+          <div class="use-case-content">
+            <div>
+              <h4><i class="fas fa-question-circle"></i> Application</h4>
+              <p>Large-scale packaging design</p>
+            </div>
+            <div>
+              <h4><i class="fas fa-brain"></i> AI Implementation</h4>
+              <p>Batch design automation with DALL·E</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Entertainment -->
+        <div class="use-case-card">
+          <i class="fas fa-film"></i>
+          <h3><i class="fas fa-music"></i> Entertainment</h3>
+          <div class="use-case-content">
+            <div>
+              <h4><i class="fas fa-question-circle"></i> Application</h4>
+              <p>Merch for movies, music, and events</p>
+            </div>
+            <div>
+              <h4><i class="fas fa-brain"></i> AI Implementation</h4>
+              <p>AI-generated celebrity or event merch</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="section">
-      <h2>🤖 AI Solutions & Use Cases</h2>
+      <h2>Core AI Capabilities</h2>
       
-      <h3><i class="fas fa-robot"></i> 1. Dana - The AI Brand Avatar</h3>
-      <ul>
-        <li>Multilingual assistant (Arabic/English/French/Hindi) with cultural awareness</li>
-        <li>Web, Telegram, WhatsApp, and social media integration</li>
-        <li>24/7 customer support with 90% query resolution rate</li>
-        <li>Personalized product recommendations based on business type</li>
-      </ul>
-
-      <h3><i class="fas fa-bullhorn"></i> 2. Digital Marketing Automation</h3>
-      <ul>
-        <li>n8n + GPT-4 for dynamic content generation</li>
-        <li>Automated Google reviews collection and testimonial reels</li>
-        <li>Predictive campaign performance modeling</li>
-        <li>Personalized email marketing at scale</li>
-      </ul>
-
-      <h3><i class="fas fa-database"></i> 3. Smart Data Scraping</h3>
-      <ul>
-        <li>Automated lead generation from Booking.com, KHDA, MOE</li>
-        <li>AI-powered lead scoring and prioritization</li>
-        <li>Competitive pricing intelligence dashboard</li>
-        <li>Market trend analysis reports</li>
-      </ul>
-
-      <h3><i class="fas fa-cogs"></i> 4. Workflow Automation</h3>
-      <ul>
-        <li>Voice → Order → Invoice → PDF workflow</li>
-        <li>HR automation: performance reviews, leave management, birthdays</li>
-        <li>Automated supplier communication and inventory management</li>
-        <li>Real-time production tracking for customers</li>
-      </ul>
-
-      <h3><i class="fas fa-image"></i> 5. AI Image & Video Generation</h3>
-      <ul>
-        <li>Tourist campaigns with Google Veo and DALL-E 3 integration</li>
-        <li>AI product mockups in 15 seconds</li>
-        <li>Brand style guide enforcement</li>
-        <li>Automated design correction for print readiness</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>📊 Business Model & Revenue Streams</h2>
-      
-      <div class="revenue-model">
-        <div class="revenue-item">
-          <h4>Vendor Commissions</h4>
-          <div class="value">15-25%</div>
-          <p>Per transaction on marketplace</p>
+      <div class="use-cases">
+        <div class="use-case-card">
+          <i class="fas fa-robot"></i>
+          <h3>Dana - AI Brand Avatar</h3>
+          <p>Multilingual AI assistant providing 24/7 customer support across all platforms with natural language understanding.</p>
         </div>
-        <div class="revenue-item">
-          <h4>SaaS Subscriptions</h4>
-          <div class="value">$99-$499/mo</div>
-          <p>For premium AI tools</p>
+        
+        <div class="use-case-card">
+          <i class="fas fa-brain"></i>
+          <h3>Intelligent Design Systems</h3>
+          <p>AI-powered tools that transform concepts into print-ready designs in seconds with brand compliance checks.</p>
         </div>
-        <div class="revenue-item">
-          <h4>API Services</h4>
-          <div class="value">$0.01/call</div>
-          <p>For design automation</p>
-        </div>
-        <div class="revenue-item">
-          <h4>Data Licensing</h4>
-          <div class="value">$5k-$20k/mo</div>
-          <p>Industry trend reports</p>
+        
+        <div class="use-case-card">
+          <i class="fas fa-bolt"></i>
+          <h3>Automated Workflows</h3>
+          <p>End-to-end process automation from order intake to production scheduling and delivery tracking.</p>
         </div>
       </div>
-      
-      <h3>Financial Projections</h3>
-      <ul>
-        <li>Year 1: $500K revenue with 40% gross margin</li>
-        <li>Year 2: $1.8M revenue with 55% gross margin</li>
-        <li>Year 3: $4.2M revenue with 65% gross margin</li>
-        <li>Customer Acquisition Cost: $85 (Industry average: $220)</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>🚀 Implementation Timeline</h2>
-      
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>Phase 1: Foundation (Months 1-3)</h3>
-            <ul>
-              <li>Build Dana MVP for Web/Telegram</li>
-              <li>Prototype data scraper for hotel/school leads</li>
-              <li>Setup core automation infrastructure</li>
-            </ul>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>Phase 2: Launch (Months 4-6)</h3>
-            <ul>
-              <li>Launch AI marketing pilot to 500 businesses</li>
-              <li>Onboard first 20 printing partners</li>
-              <li>Implement voice-to-order system</li>
-            </ul>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>Phase 3: Growth (Months 7-12)</h3>
-            <ul>
-              <li>Expand to Abu Dhabi and Dubai markets</li>
-              <li>Launch mobile app with AR preview</li>
-              <li>Introduce premium AI subscription tier</li>
-            </ul>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>Phase 4: Expansion (Year 2)</h3>
-            <ul>
-              <li>Expand to Saudi Arabia and Qatar</li>
-              <li>Develop enterprise solutions</li>
-              <li>Launch API marketplace</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>🏆 Competitive Advantages</h2>
-      <ul>
-        <li><strong>First Mover Advantage</strong>: UAE's first AI-integrated print marketplace</li>
-        <li><strong>Technology Moat</strong>: Proprietary AI algorithms and Dana avatar system</li>
-        <li><strong>Operational Efficiency</strong>: 70% reduction in manual processes</li>
-        <li><strong>Omnichannel Presence</strong>: Seamless customer experience across all platforms</li>
-        <li><strong>Data Intelligence</strong>: Unique market insights from AI analysis</li>
-      </ul>
-      
-      <h3>Market Differentiation</h3>
-      <ul>
-        <li>Traditional Printers: Limited to physical services, no digital intelligence</li>
-        <li>Online Platforms: Basic storefronts without AI integration</li>
-        <li>Dandpo AI: Full ecosystem with predictive capabilities and automation</li>
-      </ul>
     </div>
 
     <div class="note">
-      <strong>GitHub Repository Ready:</strong> This HTML document is optimized for hosting on GitHub Pages. Simply push to your repository and enable GitHub Pages in settings for instant deployment.
+      <strong>GitHub Ready:</strong> This HTML document is fully optimized for hosting on GitHub Pages. Simply push to your repository and enable GitHub Pages in settings for instant deployment.
     </div>
 
     <div style="text-align: center; margin: 2rem 0;">
-      <a href="#" class="cta-button">Request Investor Deck</a>
-      <a href="#" class="cta-button">Schedule Demo</a>
+      <a href="#" class="cta-button">Request Full Strategy Document</a>
+      <a href="#" class="cta-button secondary">Schedule AI Demo</a>
     </div>
   </div>
 
   <footer>
     <div class="container">
       <p>Dandpo.com - Transforming Printing Through AI Innovation</p>
-      <p>Contact: info@dandpo.com | +971 4 123 4567</p>
       <p>Dubai, United Arab Emirates</p>
       <div style="margin-top: 1rem;">
         <i class="fab fa-linkedin fa-2x" style="margin: 0 10px;"></i>
@@ -608,9 +657,9 @@
   </footer>
 
   <script>
-    // Simple animation for section entrance
+    // Simple animation for card entrance
     document.addEventListener('DOMContentLoaded', function() {
-      const sections = document.querySelectorAll('.section');
+      const cards = document.querySelectorAll('.use-case-card, .workflow-step');
       
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -621,11 +670,11 @@
         });
       }, { threshold: 0.1 });
       
-      sections.forEach(section => {
-        section.style.opacity = 0;
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(section);
+      cards.forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
       });
       
       // Add year automatically
